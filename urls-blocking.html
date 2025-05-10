@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Blocker</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2016/11/19/22/52/coding-1841550_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            /* max-width: 800px; */
+            /* margin: 50px auto; */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+        }
+        h1, h2, p {
+            text-align: center;
+        }
+        nav {
+            background: #007bff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background: #0056b3;
+            list-style: none;
+            padding: 10px;
+            top: 100%;
+            left: 0;
+            border-radius: 5px;
+        }
+        nav ul ul li {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #ff3333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #cc0000;
+        }
+        .blocked-sites img {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .back-button {
+            background: #007bff;
+        }
+        #urlInput{
+            width: 50%;
+            height: 30px;
+        }
+        #message{
+            color: red;
+        }
+        .container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* #content  */
+.awareness-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.awareness-item {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.awareness-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.awareness-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.awareness-item:hover img {
+    opacity: 0.8;
+}
+
+.awareness-item p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+/* #back-btn */
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+    
+#back-btn {
+    position: absolute;
+    /* top: 20px;  Adjust the distance from the top */
+    left: 20px; /* Adjust the distance from the left */
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#back-btn a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#back-btn:hover {
+    background-color: #ff4d4d;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <button id="back-btn" onclick="goBack()" style="width: auto;"><a href="index.html" class="back">⬅ Back</a></button>
+    
+
+    <div class="container" id="home">
+        <h1 id="webBlockerTitle" style="width: 200px; text-align: center; white-space: nowrap; display: flex; justify-content: center; margin: auto;">
+            Web <span id="blockerText" style="color: red;"></span>
+        </h1>
+        
+        <!-- <h1></h1> -->
+        <p>Enter a website URL to check if it is Safe OR Not</p>
+        <input type="text" id="urlInput" placeholder="Enter a website URL">
+        <button id="checkButton">Check Website</button>
+        <p id="message" style="color: red;"></p>
+    </div>
+
+    <div class="container blocked-sites" id="awareness">
+    <h2>Internet Safety Awareness</h2>
+    <p>Be aware of harmful websites that can steal your data or expose you to illegal content.</p>
+
+    <div class="awareness-grid">
+        <div class="awareness-item">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Cybersecurity Awareness">
+            <p>Protect your data from hackers and phishing scams.</p>
+        </div>
+        <div class="awareness-item">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb" alt="Safe Browsing">
+            <p>Use strong passwords and enable two-factor authentication.</p>
+        </div>
+        <div class="awareness-item">
+            <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg" alt="Secure Internet Usage">
+            <p>Avoid downloading files from untrusted sources.</p>
+        </div>
+        <div class="awareness-item">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3" alt="Online Fraud">
+            <p>Verify website URLs to prevent online fraud.</p>
+        </div>
+    </div>
+
+    <!-- second stage -->
+    <div class="container blocked-sites" id="awareness">
+        <h2>Internet Safety Awareness</h2>
+        <p>Be aware of harmful websites that can steal your data or expose you to illegal content.</p>
+
+        <div class="awareness-grid">
+            <div class="awareness-item">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3" alt="Cybersecurity Awareness">
+                <p>Make sure you're using a secure internet connection.</p>
+            </div>
+            <div class="awareness-item">
+                <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d" alt="Safe Browsing">
+                <p>Keep software and operating systems updated.</p>
+            </div>
+            <div class="awareness-item">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Secure Internet Usage">
+                <p>Check that websites look and feel reliable.</p>
+            </div>
+            <div class="awareness-item">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095" alt="Online Fraud">
+                <p>Double check online information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+     const blockedSites = {
+    betting: [
+        "bet365.com", "paddypower.com", "888sport.com", "ladbrokes.com", "williamhill.com",
+        "skybet.com", "bwin.com", "unibet.com", "10bet.com", "betfred.com",
+        "betfair.com", "sportingbet.com", "dafabet.com", "marathonbet.com", "1xbet.com",
+        "22bet.com", "888casino.com", "casumo.com", "betway.com", "leovegas.com"
+    ],
+    porn: [
+        "pornhub.com", "xvideos.com", "redtube.com", "youjizz.com", "xhamster.com",
+        "youporn.com", "spankbang.com", "tnaflix.com", "keezmovies.com", "efukt.com",
+        "drtuber.com", "brazzers.com", "fantasti.cc", "xtube.com", "slutload.com",
+        "xnxx.com", "clips4sale.com", "onlyfans.com", "bangbros.com", "private.com", "xxx.com", "niksindian.com"
+    ],
+    fraud: [
+        "fakebank.com", "scamwebsite.com", "fraudloan.com", "creditcard-steal.com", "fakecrypto.com",
+        "phishingsite.com", "malware-inject.com", "hacking-tools.com", "ransomware-exchange.com", "darkwebmarket.com",
+        "spoofpay.com", "idtheft.com", "ssn-steal.com", "scammerlist.com", "cardfraud.com",
+        "darkweb-links.com", "stolencards.net", "phishingattack.net", "russianhackers.com", "bitcoinfraud.com",
+        "get-rich-quick.com", "clickbait-ads.com", "lotterywin-now.com", "fakecelebritynews.com", "freebitcointricks.com",
+        "earnmoneyfast.com", "crypto-doubler.com", "miracle-cures.com", "fake-antivirus.com", "scammypromos.com",
+        "easy-hack-tools.com", "darkweb-freehacks.com", "lottery-claim-now.com", "virusdownloadsite.com", "scam-investment.com",
+        "bitcoin-fraud.net", "money-generator.com", "fakegiveaways.com", "credit-score-hack.com", "fakejoboffers.com"
+    ],
+    below18: [
+        "childgambling.com", "underagecasino.com", "teenbet.com", "kidscasino.com", "minorsbet.com",
+        "youthpoker.com", "illegalbetting.com", "teenbets.com", "childwagers.com", "kiddiecasino.com",
+        "underage-betting.com", "minors-betgames.com", "teenpoker.com", "teenbettingclub.com", "u18bets.com"
+    ],
+    phishing: [
+        "secure-login-verification.com", "paypal-login-alert.com", "netflix-support-login.net",
+        "appleid-login-update.com", "bankofamerica-verification.com", "gmail-login-security.com",
+        "account-verification-check.com", "verify-myaccount-now.com", "amazon-verify-account.net",
+        "microsoft-login-support.net", "your-bank-login.com", "payment-protection-alert.com"
+    ],
+    suspicious: [
+        "bit.ly/fake-check-now", "tinyurl.com/bank-verify", "shady-login.net",
+        "free-giftcards-now.ru", "check-now-fraud.net", "quickbankaccess.com",
+        "urgent-security-check.com", "unknown-payment-alert.com", "win-iphone15-today.ru"
+    ],
+    typosquatted: [
+        "go0gle.com", "faceb00k-login.net", "netfliix.com", "yah00.com", "amazzon.com",
+        "linkedln.com", "micros0ft.com", "instagrame-login.com", "gma1l.com", "tw1tter.com","https://paypa1.com","https://go0gle.com","https://faceb00k-login.net",
+        "https://secure-login-verification.com/account-update","https://bankofamerica-update.com/login","https://netflixaccountsupport.com/recover","http://192.168.0.1/login.php",
+        "http://203.0.113.10/secure-banking","http://get-rich-fast.xyz","http//free-bitcoin-generator.net","http://claimyouriphone15-free.ru","http://secure-portal-update.com/file.pdf.exe",
+        "http://support-center-login.com/index.html.zip"
+    ],
+    ransomware: [
+        "ransomware-encryptor.net", "decrypt-myfiles-now.com", "ransomnote-download.com",
+        "darklocker.org", "paytoransom.ru", "decryptkey-selling.com",
+        "hiddenlocker.com", "cyberextortion.net", "files-encrypted-help.com", "payupnowransom.com","https://tinyurl.com/bank-verify","http://secure-portal-update.com/file.pdf.exe",
+        "http://support-center-login.com/index.html.zip"
+    ]
+    
+};
+
+
+        // Show the specific page based on navigation selection
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.classList.remove('hidden');
+                    // Mark this link as active
+                    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                    document.querySelector(nava[href="#${pageId}"]).classList.add('active');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+        }
+
+        // Check website function
+        document.getElementById("checkButton").addEventListener("click", function() {
+            const urlInput = document.getElementById("urlInput").value.toLowerCase();
+            const messageElement = document.getElementById("message");
+            messageElement.classList.remove("hidden");
+
+            const isBlocked = Object.values(blockedSites).flat().some(site => urlInput.includes(site));
+
+            if (isBlocked) {
+                messageElement.textContent = "Warning: This website is blocked due to illegal activities.";
+            } else {
+                // If the website is safe, redirect to it
+                messageElement.textContent = "This website is safe. Redirecting...";
+                messageElement.style.color = "green"; // Apply green color
+
+                setTimeout(() => {
+                    window.location.href = urlInput.startsWith('http://') || urlInput.startsWith('https://') ? urlInput : 'http://' + urlInput;
+                }, 3000); // Redirect after 3 seconds
+            }
+        });
+
+// auto typing text for web-blocking
+    const text2 = "-Blocker";
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        let blockerElement = document.getElementById("blockerText");
+
+        if (!isDeleting) {
+            // Typing Phase
+            if (index < text2.length) {
+                blockerElement.innerHTML = text2.substring(0, index + 1);
+                index++;
+            } else {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500); // Pause before deleting
+                return;
+            }
+        } else {
+            // Deleting Phase
+            if (index > 0) {
+                blockerElement.innerHTML = text2.substring(0, index - 1);
+                index--;
+            } else {
+                isDeleting = false;
+            }
+        }
+
+        setTimeout(typeEffect, 150); // Typing speed control
+    }
+
+    window.onload = typeEffect;
+    </script>
+</body>
+</html>

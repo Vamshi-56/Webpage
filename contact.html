@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cyber Crime Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+      /* Basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+h1 {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1.2s ease-in-out;
+}
+form {
+    max-width: 600px;
+    margin: 10% auto;
+    padding: 40px;
+    background-color: rgba(43, 51, 59, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: zoomIn 1.4s ease-in-out;
+}
+form:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.3s ease-in-out;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.4);
+}
+
+/* Background image section */
+
+
+/* Animation Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Back Button Styles */
+.bg {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Push content (form) to the right */
+    height: 100vh;
+    background: url("bg.jpg") no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    margin-top: -20px;
+}
+
+/* Back button updated styles */
+.backbtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(45deg, #e94560, #ff6b81);
+    border: none;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+.backbtn i {
+    color: white;
+}
+.backbtn a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Form aligned to right (already inside flex) */
+form {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: 60px; /* Adjust distance from right side */
+    padding: 40px;
+    background-color: rgba(43, 51, 59, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: zoomIn 1.4s ease-in-out;
+}
+.submit{
+    background: none;
+    width: 20px;
+    height: 10px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- <div class="bg">
+        <img src="{% static 'images/bg.jpg' %}" alt="">
+    </div> -->
+    
+    <button class="backbtn1" onclick="goBack()">
+        <!-- <i class="fa fa-arrow-left"></i>   -->
+        <!-- <span>Back</span> -->
+    </button>
+    
+    
+    <div class="bg">
+        <!-- Back Button -->
+        <button class="backbtn" onclick="goBack()">
+            <i class="fa-solid fa-backward"></i>
+            <a href="index.html">Back</a>
+        </button>
+    
+        <!-- Contact Form -->
+        <form class="transition" action="https://api.web3forms.com/submit" method="POST">
+            <h1>contact us</h1>
+            {% csrf_token %}
+            <input type="hidden" name="access_key" value="a242567a-0d6b-4867-ab53-49c873f96c6d">    
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+            <button type="submit" style="width: 150px; height: 40px; background-color: #ff6b81; font-size: 12px; color: white;border-radius:10px; font-weight: bolder;">Send Message</button>
+        </form>
+    </div>
+    
+    <footer style="background-color:#0d1117; color:#fff; padding: 40px 20px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-top: 1px;">
+        <div style="max-width: 1000px; margin: auto;">
+            <h2 style="margin-bottom: 20px; font-size: 22px; color: #e94560;">Explore More</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; font-size: 15px;">
+                <div><a href="{% url 'dashboard' %}" style="color: #aaa; text-decoration: none;">Report a Cyber Crime</a></div>
+                <div><a href="https://cybercrime.gov.in/Webform/chkackstatus.aspx" style="color: #aaa; text-decoration: none;">Track Complaint Status</a></div>
+                <div><a href="https://www.checkpoint.com/lp/quantum-force-phishing-prevention/?utm_campaign=dg_dem_24q2_ww_all_mix-g-force-paidsearchgeneric-demo-lg_en-gsem&utm_source=google-dg&utm_medium=cpc&utm_term=phishing%20attack%20and%20prevention&utm_content=phishing_1&gad_source=1&gclid=CjwKCAjwzMi_BhACEiwAX4YZUP2LQ5zZb4wwpprfWSiRxUvtXVir0PwpDKQp3TE9DxtK-12tpn4_-BoCjmwQAvD_BwE" style="color: #aaa; text-decoration: none;">Phishing Awareness</a></div>
+                <div><a href="{% url 'timeline' %}" style="color: #aaa; text-decoration: none;">Fraudulent Links Checker</a></div>
+                <div><a href="https://www.fortinet.com/resources/cyberglossary/artificial-intelligence-in-cybersecurity" style="color: #aaa; text-decoration: none;">Threat Intelligence</a></div>
+                <div><a href="#" style="color: #aaa; text-decoration: none;">Live Crime Graph</a></div>
+                <div><a href="{% url 'base' %}" style="color: #aaa; text-decoration: none;">SOS Location Help</a></div>
+                <div><a href="#" style="color: #aaa; text-decoration: none;">Helpline Numbers</a></div>
+            </div>
+            <p style="margin-top: 30px; font-size: 13px; color: #666;">&copy; 2025 Cyber Crime Prediction Platform. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+
+function goBack() {
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            window.location.href = "index.html";
+        }
+    }
+        // JavaScript for form submission
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(form);
+            fetch('/send-email', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                alert('Error sending message. Please try again later.');
+            });
+        });
+    </script>
+
+    
+</body> 
+</html>

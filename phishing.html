@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phishing Shield - Protect Yourself Online</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Color Palette */
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.2);
+      --purple: #8a2be2;
+      --dark: #0f0f1a;
+      --light: #f5f5f5;
+      --highlight: #ffe066;
+      --primary: #2575fc;
+      --secondary: #6a11cb;
+      --danger: #ff4d4d;
+      --success: #4CAF50;
+      --warning: #ff9800;
+      --info: #2196F3;
+    }
+
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Body */
+    body {
+      background: linear-gradient(120deg, #0f0f1a, #1a1a2e);
+      color: var(--light);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 30px;
+      text-align: center;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      font-size: 1.8rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--highlight);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Section */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Glass Effect */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: var(--highlight);
+      text-align: center;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--highlight);
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(31, 31, 46, 0.8);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(51, 51, 51, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--highlight);
+    }
+
+    /* Stats Section */
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 20px;
+      min-width: 200px;
+      background: rgba(31, 31, 46, 0.8);
+      border-radius: 10px;
+      border: 1px solid rgba(51, 51, 51, 0.5);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 10px 0;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--highlight);
+      color: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+    }
+
+    .btn-success {
+      background: var(--success);
+    }
+
+    .btn-warning {
+      background: var(--warning);
+    }
+
+    /* Tip Box */
+    .tip-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .tip-btn {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: rgba(37, 117, 252, 0.2);
+      border: 1px solid rgba(37, 117, 252, 0.3);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tip-btn:hover {
+      background: rgba(37, 117, 252, 0.3);
+    }
+
+    .tip-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .tip-btn.active i {
+      transform: rotate(180deg);
+    }
+
+    .tip-box {
+      background: rgba(34, 34, 34, 0.7);
+      padding: 0;
+      border-left: 5px solid var(--primary);
+      margin-bottom: 10px;
+      border-radius: 0 8px 8px 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .tip-box.active {
+      padding: 15px;
+      max-height: 500px;
+    }
+
+    .tip-box p {
+      margin-bottom: 10px;
+    }
+
+    .tip-box ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Real Example Section */
+    .example-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .example {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      background: rgba(31, 31, 46, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(51, 51, 51, 0.5);
+    }
+
+    .example img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .example-content {
+      flex: 1;
+    }
+
+    .example .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .tag-danger {
+      background: rgba(255, 77, 77, 0.2);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+
+    .tag-warning {
+      background: rgba(255, 152, 0, 0.2);
+      color: var(--warning);
+      border: 1px solid var(--warning);
+    }
+
+    /* Quiz Section */
+    .quiz-section {
+      position: relative;
+    }
+
+    .quiz-container {
+      background: rgba(31, 31, 46, 0.8);
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-question {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-option:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .quiz-option.selected {
+      background: rgba(37, 117, 252, 0.2);
+      border-color: var(--primary);
+    }
+
+    .quiz-option.correct {
+      background: rgba(76, 175, 80, 0.2);
+      border-color: var(--success);
+    }
+
+    .quiz-option.incorrect {
+      background: rgba(255, 77, 77, 0.2);
+      border-color: var(--danger);
+    }
+
+    .quiz-result {
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .quiz-result.show {
+      display: block;
+    }
+
+    .quiz-result.success {
+      background: rgba(76, 175, 80, 0.2);
+      border-left: 5px solid var(--success);
+    }
+
+    .quiz-result.error {
+      background: rgba(255, 77, 77, 0.2);
+      border-left: 5px solid var(--danger);
+    }
+
+    .quiz-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    label {
+      font-weight: 500;
+      color: var(--highlight);
+    }
+
+    input,
+    textarea,
+    select {
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(42, 42, 59, 0.8);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+    }
+
+    /* Alert */
+    .alert {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .alert.show {
+      display: block;
+    }
+
+    .alert-success {
+      background: rgba(76, 175, 80, 0.2);
+      border-left: 5px solid var(--success);
+      color: #d4edda;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 30px;
+      background: #14142b;
+      color: #ccc;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--highlight);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--highlight);
+    }
+
+    .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+      }
+      
+      nav.show {
+        display: flex;
+        margin-top: 15px;
+      }
+      
+      section {
+        padding: 40px 15px;
+      }
+      
+      .example {
+        flex-direction: column;
+      }
+      
+      .example img {
+        width: 100%;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .stats-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stat-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-shield-alt"></i>
+      <h1>Phishing Shield</h1>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="mainNav">
+      <a href="#what"><i class="fas fa-info-circle"></i> What is Phishing?</a>
+      <a href="#stats"><i class="fas fa-chart-bar"></i> Statistics</a>
+      <a href="#types"><i class="fas fa-list"></i> Types</a>
+      <a href="#tips"><i class="fas fa-lightbulb"></i> Prevention Tips</a>
+      <a href="#examples"><i class="fas fa-eye"></i> Real Examples</a>
+      <a href="#quiz"><i class="fas fa-question-circle"></i> Quiz</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+  </header>
+
+  <section id="what" class="glass">
+    <h2>What is Phishing?</h2>
+    <p>
+      Phishing is a cybercrime where targets are contacted by email, telephone, or text message by someone posing as a legitimate institution to lure individuals into providing sensitive data such as personally identifiable information, banking and credit card details, and passwords.
+    </p>
+    <p>
+      The information is then used to access important accounts and can result in identity theft and financial loss. The first phishing lawsuit was filed in 2004 against a Californian teenager who created the imitation of the website "America Online".
+    </p>
+    <div class="stats-container" style="margin-top: 30px;">
+      <div class="stat-box">
+        <i class="fas fa-envelope"></i>
+        <div class="stat-number">3.4B</div>
+        <div>Phishing emails sent daily</div>
+      </div>
+      <div class="stat-box">
+        <i class="fas fa-dollar-sign"></i>
+        <div class="stat-number">$12B+</div>
+        <div>Lost to phishing annually</div>
+      </div>
+      <div class="stat-box">
+        <i class="fas fa-user-secret"></i>
+        <div class="stat-number">65%</div>
+        <div>Of attacks target organizations</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="glass">
+    <h2>Phishing Statistics</h2>
+    <p>Understanding the scope of phishing helps recognize its importance:</p>
+    
+    <div class="card-grid">
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Rising Threats</h3>
+        <p>Phishing attacks have increased by 65% in the past year, making it the most common cyber threat.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-briefcase"></i>
+        <h3>Business Impact</h3>
+        <p>60% of small businesses close within 6 months of a cyber attack, with phishing being the primary vector.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-clock"></i>
+        <h3>Response Time</h3>
+        <p>The average time to identify a breach is 207 days, giving attackers plenty of time to exploit stolen data.</p>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="#tips" class="btn btn-success">
+        <i class="fas fa-shield-alt"></i> Learn How to Protect Yourself
+      </a>
+    </div>
+  </section>
+
+  <section id="types" class="glass">
+    <h2>Types of Phishing Attacks</h2>
+    <p>Cybercriminals use various phishing techniques to steal your information. Here are the most common types:</p>
+    
+    <div class="card-grid">
+      <div class="card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email Phishing</h3>
+        <p>Mass emails pretending to be from reputable companies (banks, tech firms) with urgent requests to verify accounts or update information.</p>
+        <p><strong>Example:</strong> "Your account will be suspended unless you click here to verify your details."</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Spear Phishing</h3>
+        <p>Personalized attacks targeting specific individuals or organizations using gathered personal information to appear legitimate.</p>
+        <p><strong>Example:</strong> An email to an HR manager appearing to come from the CEO requesting employee tax information.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Smishing & Vishing</h3>
+        <p>Phishing via SMS (smishing) or voice calls (vishing) pretending to be from banks or government agencies.</p>
+        <p><strong>Example:</strong> "Your bank card has been locked. Call this number immediately to unlock it."</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-sitemap"></i>
+        <h3>Whaling</h3>
+        <p>Targeted at high-profile individuals like CEOs (the "big fish") to access sensitive corporate data or authorize fraudulent transactions.</p>
+        <p><strong>Example:</strong> An email to a CFO appearing to come from the CEO requesting an urgent wire transfer.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-clone"></i>
+        <h3>Clone Phishing</h3>
+        <p>Legitimate emails that have been "cloned" with attachments or links replaced with malicious versions.</p>
+        <p><strong>Example:</strong> A resent email you previously received, but with a "updated" malicious attachment.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-search"></i>
+        <h3>Search Engine Phishing</h3>
+        <p>Creating fake websites that appear in search results for popular products or services to steal payment info.</p>
+        <p><strong>Example:</strong> A fake online store offering popular items at huge discounts to harvest credit card details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips" class="glass">
+    <h2>Phishing Prevention Tips</h2>
+    <p>Protect yourself with these essential security practices:</p>
+    
+    <div class="tip-container">
+      <button class="tip-btn" onclick="toggleTip(0)">
+        <span><i class="fas fa-link"></i> Verify Links Before Clicking</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="tip-box">
+        <p>Hover over any link before clicking to see the actual URL. Look for:</p>
+        <ul>
+          <li>Misspellings in the domain name (e.g., "paypai.com" instead of "paypal.com")</li>
+          <li>Strange subdomains (e.g., "paypal.security-update.com")</li>
+          <li>HTTP instead of HTTPS (though HTTPS alone doesn't guarantee safety)</li>
+          <li>Unusual characters or numbers in the URL</li>
+        </ul>
+        <p>When in doubt, navigate directly to the website by typing the known URL in your browser.</p>
+      </div>
+
+      <button class="tip-btn" onclick="toggleTip(1)">
+        <span><i class="fas fa-lock"></i> Use Multi-Factor Authentication</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="tip-box">
+        <p>MFA adds an extra layer of security beyond just passwords:</p>
+        <ul>
+          <li>Enable MFA on all accounts that offer it (email, banking, social media)</li>
+          <li>Use authenticator apps (Google Authenticator, Microsoft Authenticator) instead of SMS when possible</li>
+          <li>Consider hardware security keys for high-value accounts</li>
+          <li>Set up backup methods in case you lose access to your primary device</li>
+        </ul>
+        <p>Even if your password is compromised, MFA can prevent unauthorized access.</p>
+      </div>
+
+      <button class="tip-btn" onclick="toggleTip(2)">
+        <span><i class="fas fa-envelope"></i> Scrutinize Email Addresses</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="tip-box">
+        <p>The display name in emails can be faked. Always check the actual email address:</p>
+        <ul>
+          <li>Look for slight variations from legitimate addresses (e.g., "support@amaz0n.com")</li>
+          <li>Be wary of free email domains (Gmail, Yahoo) used for official communications</li>
+          <li>Check for misspellings or added/omitted characters</li>
+          <li>Remember that legitimate companies rarely change their domain names</li>
+        </ul>
+        <p>When in doubt, contact the company through their official website or customer service number.</p>
+      </div>
+
+      <button class="tip-btn" onclick="toggleTip(3)">
+        <span><i class="fas fa-exclamation-triangle"></i> Recognize Urgency & Threats</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="tip-box">
+        <p>Phishing often creates false urgency to bypass your critical thinking:</p>
+        <ul>
+          <li>Be suspicious of emails threatening account closure or legal action</li>
+          <li>Legitimate companies won't demand immediate action via email</li>
+          <li>Watch for language designed to panic you ("Your account has been compromised!")</li>
+          <li>Verify any "urgent" requests through official channels</li>
+        </ul>
+        <p>Take a moment to assess before reacting to alarming messages.</p>
+      </div>
+
+      <button class="tip-btn" onclick="toggleTip(4)">
+        <span><i class="fas fa-desktop"></i> Keep Software Updated</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="tip-box">
+        <p>Regular updates protect against known vulnerabilities:</p>
+        <ul>
+          <li>Enable automatic updates for your operating system</li>
+          <li>Keep browsers and plugins (Flash, Java) up to date</li>
+          <li>Update mobile apps regularly, especially security apps</li>
+          <li>Use reputable antivirus software with real-time protection</li>
+        </ul>
+        <p>Many phishing attacks exploit known vulnerabilities that patches would fix.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="examples" class="glass">
+    <h2>Real Phishing Examples</h2>
+    <p>Examine these real-world phishing attempts to recognize common patterns:</p>
+    
+    <div class="example-container">
+      <div class="example">
+        <img src="https://example.com/phishing1.jpg" alt="PayPal phishing email">
+        <div class="example-content">
+          <div>
+            <span class="tag tag-danger">Email Phishing</span>
+            <span class="tag tag-warning">Financial</span>
+          </div>
+          <h3>Fake PayPal Security Alert</h3>
+          <p><strong>Red Flags:</strong> Urgent language, generic greeting ("Dear User"), suspicious link (hover shows "paypal-security.net"), requests sensitive information.</p>
+          <p><strong>How to Verify:</strong> Log in directly to PayPal (not via email link) to check for actual alerts. PayPal will address you by name in legitimate communications.</p>
+        </div>
+      </div>
+      
+      <div class="example">
+        <img src="https://example.com/phishing2.jpg" alt="Microsoft support scam">
+        <div class="example-content">
+          <div>
+            <span class="tag tag-danger">Tech Support Scam</span>
+            <span class="tag tag-warning">Vishing</span>
+          </div>
+          <h3>Fake Microsoft Support Call</h3>
+          <p><strong>Red Flags:</strong> Unsolicited call claiming your computer has viruses, pressure to install remote access software, request for payment to "fix" non-existent problems.</p>
+          <p><strong>How to Verify:</strong> Microsoft never makes unsolicited support calls. Hang up immediately. If concerned about your computer, contact Microsoft through official channels.</p>
+        </div>
+      </div>
+      
+      <div class="example">
+        <img src="https://example.com/phishing3.jpg" alt="Google Docs phishing">
+        <div class="example-content">
+          <div>
+            <span class="tag tag-danger">Document Phishing</span>
+            <span class="tag tag-warning">Account Takeover</span>
+          </div>
+          <h3>Fake Google Docs Collaboration</h3>
+          <p><strong>Red Flags:</strong> Email appears to come from a known contact but with a fake Google Docs link, requests permission to access your Google account.</p>
+          <p><strong>How to Verify:</strong> Check the sender's actual email address. Google Docs shares appear in your Drive, not as email attachments. Revoke suspicious app permissions at myaccount.google.com.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank" class="btn">
+        <i class="fas fa-external-link-alt"></i> More Examples from FTC
+      </a>
+    </div>
+  </section>
+
+  <section id="quiz" class="glass quiz-section">
+    <h2>Phishing Knowledge Quiz</h2>
+    <p>Test your ability to spot phishing attempts with these scenarios:</p>
+    
+    <div class="quiz-container" id="quiz1">
+      <div class="quiz-question">
+        1. You receive an email from your bank saying your account has been locked due to suspicious activity. It includes a link to "unlock your account immediately." What should you do?
+      </div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(this, 0, 1)">Click the link and follow the instructions</div>
+        <div class="quiz-option" onclick="selectOption(this, 1, 1)">Call your bank using the number on your card to verify</div>
+        <div class="quiz-option" onclick="selectOption(this, 2, 1)">Forward the email to your bank's fraud department</div>
+        <div class="quiz-option" onclick="selectOption(this, 3, 1)">Both B and C</div>
+      </div>
+    </div>
+    
+    <div class="quiz-container" id="quiz2" style="display: none;">
+      <div class="quiz-question">
+        2. A text message says you've won a $500 gift card from a major retailer and asks you to click a link to claim it. You haven't entered any contests. What's the best response?
+      </div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(this, 0, 2)">Click the link to see if it's legitimate</div>
+        <div class="quiz-option" onclick="selectOption(this, 1, 2)">Delete the message and block the number</div>
+        <div class="quiz-option" onclick="selectOption(this, 2, 2)">Forward it to the retailer's official customer service</div>
+        <div class="quiz-option" onclick="selectOption(this, 3, 2)">Both B and C</div>
+      </div>
+    </div>
+    
+    <div class="quiz-container" id="quiz3" style="display: none;">
+      <div class="quiz-question">
+        3. Your "boss" emails asking you to purchase gift cards for client rewards and send the codes right away. The email address looks almost correct but has an extra letter. What do you do?
+      </div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(this, 0, 3)">Follow the instructions since it's from your boss</div>
+        <div class="quiz-option" onclick="selectOption(this, 1, 3)">Call or message your boss through a known number to verify</div>
+        <div class="quiz-option" onclick="selectOption(this, 2, 3)">Check with your IT department about the suspicious email</div>
+        <div class="quiz-option" onclick="selectOption(this, 3, 3)">Both B and C</div>
+      </div>
+    </div>
+    
+    <div class="quiz-result" id="quizResult"></div>
+    
+    <div class="quiz-navigation">
+      <button class="btn" id="prevBtn" onclick="prevQuestion()" disabled>
+        <i class="fas fa-arrow-left"></i> Previous
+      </button>
+      <button class="btn" id="nextBtn" onclick="nextQuestion()">
+        Next <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <button class="btn btn-success" onclick="showAllAnswers()">
+        <i class="fas fa-check-circle"></i> Check All Answers
+      </button>
+    </div>
+  </section>
+
+  <section id="contact" class="glass">
+    <h2>Report Phishing & Contact Us</h2>
+    <p>If you've encountered a phishing attempt or have questions about cybersecurity, please reach out:</p>
+    
+    <div class="alert" id="formAlert"></div>
+    
+    <form id="contactForm" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="John Doe" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="your@email.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" required>
+          <option value="">Select a topic</option>
+          <option value="report">Report Phishing Attempt</option>
+          <option value="question">Security Question</option>
+          <option value="training">Request Employee Training</option>
+          <option value="other">Other Inquiry</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Describe the phishing attempt or your question..." required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="attachment">Attachment (Optional)</label>
+        <input type="file" id="attachment">
+        <small>You can attach screenshots of suspicious emails/messages (max 5MB)</small>
+      </div>
+      
+      <button type="submit" class="btn">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+    
+    <div style="margin-top: 30px; text-align: center;">
+              <h3>Where to Report Phishing</h3>
+      <p>Official channels to report phishing attempts:</p>
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="card">
+          <i class="fas fa-envelope"></i>
+          <h4>Email Phishing</h4>
+          <p>Forward to reportphishing@apwg.org</p>
+          <a href="mailto:reportphishing@apwg.org" class="btn btn-warning" style="margin-top: 10px; padding: 8px 12px; font-size: 0.9rem;">
+            <i class="fas fa-paper-plane"></i> Report
+          </a>
+        </div>
+        <div class="card">
+          <i class="fas fa-mobile-alt"></i>
+          <h4>SMS Phishing</h4>
+          <p>Forward to 7726 (SPAM)</p>
+          <a href="sms:7726" class="btn btn-warning" style="margin-top: 10px; padding: 8px 12px; font-size: 0.9rem;">
+            <i class="fas fa-share"></i> Forward
+          </a>
+        </div>
+        <div class="card">
+          <i class="fas fa-globe"></i>
+          <h4>FTC Website</h4>
+          <p>Report to Federal Trade Commission</p>
+          <a href="https://reportfraud.ftc.gov/" target="_blank" class="btn btn-warning" style="margin-top: 10px; padding: 8px 12px; font-size: 0.9rem;">
+            <i class="fas fa-external-link-alt"></i> Visit
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Phishing Shield</h3>
+        <p>Educating users about online threats since 2023. Our mission is to make the internet safer through awareness.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#what">What is Phishing?</a></li>
+          <li><a href="#stats">Statistics</a></li>
+          <li><a href="#types">Attack Types</a></li>
+          <li><a href="#tips">Prevention Tips</a></li>
+          <li><a href="#quiz">Knowledge Quiz</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://www.cisa.gov/stop-phishing" target="_blank">CISA Phishing Info</a></li>
+          <li><a href="https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank">FTC Guide</a></li>
+          <li><a href="https://www.phishing.org/" target="_blank">Phishing.org</a></li>
+          <li><a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned?</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 Phishing Shield. All rights reserved. | <a href="#" style="color: var(--highlight);">Privacy Policy</a> | <a href="#" style="color: var(--highlight);">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('show');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        mainNav.classList.remove('show');
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Tip box toggle functionality
+    function toggleTip(index) {
+      const tipBtn = document.querySelectorAll('.tip-btn')[index];
+      const tipBox = document.querySelectorAll('.tip-box')[index];
+      
+      tipBtn.classList.toggle('active');
+      tipBox.classList.toggle('active');
+    }
+    
+    // Quiz functionality
+    let currentQuestion = 1;
+    const totalQuestions = 3;
+    const correctAnswers = [3, 3, 3]; // Index of correct answers (0-based)
+    let userAnswers = Array(totalQuestions).fill(null);
+    
+    function selectOption(optionElement, optionIndex, questionNumber) {
+      // Remove selected class from all options in this question
+      const options = optionElement.parentElement.querySelectorAll('.quiz-option');
+      options.forEach(opt => opt.classList.remove('selected'));
+      
+      // Add selected class to clicked option
+      optionElement.classList.add('selected');
+      
+      // Store user's answer
+      userAnswers[questionNumber - 1] = optionIndex;
+    }
+    
+    function showQuestion(questionNumber) {
+      // Hide all questions
+      document.querySelectorAll('.quiz-container').forEach(q => {
+        q.style.display = 'none';
+      });
+      
+      // Show current question
+      document.getElementById(`quiz${questionNumber}`).style.display = 'block';
+      
+      // Update navigation buttons
+      document.getElementById('prevBtn').disabled = questionNumber === 1;
+      document.getElementById('nextBtn').disabled = questionNumber === totalQuestions;
+      
+      // Hide result if showing
+      document.getElementById('quizResult').classList.remove('show');
+      
+      currentQuestion = questionNumber;
+    }
+    
+    function nextQuestion() {
+      if (currentQuestion < totalQuestions) {
+        showQuestion(currentQuestion + 1);
+      }
+    }
+    
+    function prevQuestion() {
+      if (currentQuestion > 1) {
+        showQuestion(currentQuestion - 1);
+      }
+    }
+    
+    function showAllAnswers() {
+      let score = 0;
+      let resultHTML = '<h3>Quiz Results</h3>';
+      
+      for (let i = 0; i < totalQuestions; i++) {
+        const isCorrect = userAnswers[i] === correctAnswers[i];
+        if (isCorrect) score++;
+        
+        resultHTML += `
+          <p>Question ${i + 1}: ${isCorrect ? '✅ Correct' : '❌ Incorrect'}</p>
+        `;
+      }
+      
+      resultHTML += `<p><strong>Your score: ${score}/${totalQuestions}</strong></p>`;
+      
+      const resultDiv = document.getElementById('quizResult');
+      resultDiv.innerHTML = resultHTML;
+      resultDiv.className = `quiz-result ${score === totalQuestions ? 'success' : 'error'} show`;
+      
+      // Scroll to results
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Form submission
+    function submitForm(e) {
+      e.preventDefault();
+      
+      // Simulate form submission
+      const alertDiv = document.getElementById('formAlert');
+      alertDiv.textContent = 'Thank you for your message! We will respond as soon as possible.';
+      alertDiv.className = 'alert alert-success show';
+      
+      // Reset form
+      document.getElementById('contactForm').reset();
+      
+      // Scroll to alert
+      alertDiv.scrollIntoView({ behavior: 'smooth' });
+      
+      // Hide alert after 5 seconds
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+      }, 5000);
+    }
+    
+    // Initialize first question
+    showQuestion(1);
+  </script>
+</body>
+</html>

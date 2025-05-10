@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Scams Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* Global Styles */
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #3498db;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--dark-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+main {
+    padding: 2rem 0;
+}
+
+.info-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-section h2 {
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-section h2 i {
+    color: var(--secondary-color);
+}
+
+/* Warning Box */
+.warning-box {
+    background-color: #fff8e1;
+    border-left: 4px solid var(--warning-color);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.warning-box i {
+    color: var(--warning-color);
+    font-size: 1.5rem;
+}
+
+/* Scam Steps */
+.scam-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.step {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background: var(--secondary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.step h3 {
+    margin-top: 1rem;
+    color: var(--dark-color);
+}
+
+/* Scam Examples */
+.scam-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.example {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary-color);
+}
+
+.example h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Protection Tips */
+.protection-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tip {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tip i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.tip h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+/* Quiz */
+.quiz-container {
+    margin-top: 3rem;
+    background: #f5f9ff;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.quiz-container h3 {
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+}
+
+.question {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.question h4 {
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#results {
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+/* Report Form */
+.report-list {
+    margin: 1.5rem 0 2rem 2rem;
+}
+
+.report-list li {
+    margin-bottom: 0.8rem;
+}
+
+.report-form {
+    margin-top: 2rem;
+    background: #f5f9ff;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Floating Warning */
+.floating-warning {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--danger-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.floating-warning i {
+    font-size: 1.5rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav a {
+        display: block;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .scam-steps, .scam-examples, .protection-tips {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<body>
+    <header>
+        <div class="container">
+            <h1>OTP Scam Alert</h1>
+            <p>Protect yourself from One-Time Password fraud</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#what-is">What is OTP Scam?</a></li>
+                <li><a href="#how-works">How It Works</a></li>
+                <li><a href="#examples">Real Examples</a></li>
+                <li><a href="#protect">Protect Yourself</a></li>
+                <li><a href="#report">Report Scams</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="what-is" class="info-section">
+            <h2><i class="fas fa-question-circle"></i> What is an OTP Scam?</h2>
+            <p>OTP (One-Time Password) scams are a type of fraud where criminals trick you into revealing the temporary codes sent to your phone or email. These codes are meant to verify your identity but scammers use them to gain access to your accounts.</p>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Never share your OTP with anyone, even if they claim to be from your bank, a government agency, or a trusted company.</p>
+            </div>
+        </section>
+
+        <section id="how-works" class="info-section">
+            <h2><i class="fas fa-cogs"></i> How OTP Scams Work</h2>
+            <div class="scam-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>The Initial Contact</h3>
+                    <p>Scammers contact you via phone call, SMS, email, or social media pretending to be from a legitimate organization.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>The Urgent Request</h3>
+                    <p>They create a sense of urgency - your account is compromised, you'll lose money, or you need to verify something immediately.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>The OTP Request</h3>
+                    <p>They ask you to share the OTP sent to your phone, often claiming it's needed to "verify your identity" or "stop a transaction."</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>The Theft</h3>
+                    <p>With your OTP, they gain access to your accounts, make unauthorized transactions, or steal personal information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="info-section">
+            <h2><i class="fas fa-clipboard-list"></i> Common OTP Scam Examples</h2>
+            <div class="scam-examples">
+                <div class="example">
+                    <h3>Fake Bank Calls</h3>
+                    <p>"This is your bank's security department. We've detected suspicious activity. Please share the OTP we just sent to verify it's you."</p>
+                </div>
+                <div class="example">
+                    <h3>Delivery Scams</h3>
+                    <p>"Your package is held up. Share the OTP to confirm delivery address." (Even if you're not expecting a package)</p>
+                </div>
+                <div class="example">
+                    <h3>Tech Support</h3>
+                    <p>"We're from Microsoft support. Your computer has a virus. Share the OTP to verify we're helping the right person."</p>
+                </div>
+                <div class="example">
+                    <h3>Account Verification</h3>
+                    <p>"Your WhatsApp/Google/Facebook account will be deleted. Share the OTP to keep your account active."</p>
+                </div>
+            </div>
+            <button id="showMoreBtn" class="btn">Show More Examples</button>
+            <div id="moreExamples" class="hidden">
+                <div class="example">
+                    <h3>Lottery/Winning Scams</h3>
+                    <p>"You've won a prize! Share the OTP to claim your winnings."</p>
+                </div>
+                <div class="example">
+                    <h3>SIM Swap Scams</h3>
+                    <p>"We're upgrading our network. Share the OTP to keep your number active."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="protect" class="info-section">
+            <h2><i class="fas fa-shield-alt"></i> How to Protect Yourself</h2>
+            <div class="protection-tips">
+                <div class="tip">
+                    <i class="fas fa-lock"></i>
+                    <h3>Never Share OTPs</h3>
+                    <p>Legitimate organizations will never ask for your OTP. Treat it like your password.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-phone-slash"></i>
+                    <h3>Verify Callers</h3>
+                    <p>Hang up and call back using official numbers from the company's website.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-clock"></i>
+                    <h3>Don't Rush</h3>
+                    <p>Scammers create urgency. Take time to verify before acting.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-bell"></i>
+                    <h3>Enable Alerts</h3>
+                    <p>Set up transaction alerts from your bank to monitor account activity.</p>
+                </div>
+            </div>
+            <div class="quiz-container">
+                <h3>Test Your Knowledge</h3>
+                <div id="quiz"></div>
+                <button id="submit" class="btn">Submit Quiz</button>
+                <div id="results"></div>
+            </div>
+        </section>
+
+        <section id="report" class="info-section">
+            <h2><i class="fas fa-flag"></i> Report OTP Scams</h2>
+            <p>If you encounter an OTP scam attempt, report it to:</p>
+            <ul class="report-list">
+                <li>Your local police cybercrime unit</li>
+                <li>Your bank or financial institution</li>
+                <li>The relevant service provider (e.g., phone company, email provider)</li>
+                <li>National cybersecurity agencies in your country</li>
+            </ul>
+            <div class="report-form">
+                <h3>Share Your Experience (Anonymous)</h3>
+                <form id="scamReportForm">
+                    <div class="form-group">
+                        <label for="scamType">Type of Scam:</label>
+                        <select id="scamType" required>
+                            <option value="">Select one</option>
+                            <option value="bank">Bank/Financial</option>
+                            <option value="delivery">Delivery/Package</option>
+                            <option value="tech">Tech Support</option>
+                            <option value="social">Social Media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="scamMethod">Contact Method:</label>
+                        <select id="scamMethod" required>
+                            <option value="">Select one</option>
+                            <option value="call">Phone Call</option>
+                            <option value="sms">SMS/Text</option>
+                            <option value="email">Email</option>
+                            <option value="social">Social Media</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="scamDetails">Details (optional):</label>
+                        <textarea id="scamDetails" rows="4" placeholder="What did they say? Any phone numbers or other details?"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Report</button>
+                </form>
+                <div id="formSuccess" class="hidden">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Thank you for your report! This helps us track scam patterns and warn others.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 OTP Scam Awareness Project. Educational purpose only.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="otpWarning" class="floating-warning">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>Never share your OTP with anyone!</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Show more examples button
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const moreExamples = document.getElementById('moreExamples');
+    
+    showMoreBtn.addEventListener('click', function() {
+        if (moreExamples.classList.contains('hidden')) {
+            moreExamples.classList.remove('hidden');
+            showMoreBtn.textContent = 'Show Less Examples';
+        } else {
+            moreExamples.classList.add('hidden');
+            showMoreBtn.textContent = 'Show More Examples';
+        }
+    });
+
+    // Quiz functionality
+    const quizContainer = document.getElementById('quiz');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.getElementById('submit');
+    
+    const quizQuestions = [
+        {
+            question: "Your bank calls asking for an OTP to verify your identity. What should you do?",
+            options: [
+                "Share the OTP since it's your bank",
+                "Hang up and call your bank back using their official number",
+                "Give them partial digits of the OTP",
+                "Tell them the OTP but change one digit"
+            ],
+            correct: 1
+        },
+        {
+            question: "An SMS says your package is delayed and asks for an OTP to reschedule. What do you do?",
+            options: [
+                "Reply with the OTP to get your package faster",
+                "Ignore it if you're not expecting a package",
+                "Call the number in the SMS to verify",
+                "Forward the SMS to friends to warn them"
+            ],
+            correct: 1
+        },
+        {
+            question: "What is the most important rule about OTPs?",
+            options: [
+                "Share them only with people you trust",
+                "Never share them with anyone",
+                "They're safe to share with family members",
+                "They can be shared if the caller sounds official"
+            ],
+            correct: 1
+        },
+        {
+            question: "You receive an OTP you didn't request. What should you do?",
+            options: [
+                "Ignore it - might be sent by mistake",
+                "Report it to your service provider",
+                "Change your account passwords",
+                "All of the above"
+            ],
+            correct: 3
+        }
+    ];
+    
+    // Build quiz
+    function buildQuiz() {
+        const output = [];
+        
+        quizQuestions.forEach((currentQuestion, questionNumber) => {
+            const options = [];
+            
+            for (let i = 0; i < currentQuestion.options.length; i++) {
+                options.push(
+                    `<div class="option">
+                        <input type="radio" name="question${questionNumber}" value="${i}" id="q${questionNumber}o${i}">
+                        <label for="q${questionNumber}o${i}">${currentQuestion.options[i]}</label>
+                    </div>`
+                );
+            }
+            
+            output.push(
+                `<div class="question">
+                    <h4>${currentQuestion.question}</h4>
+                    <div class="options">${options.join('')}</div>
+                </div>`
+            );
+        });
+        
+        quizContainer.innerHTML = output.join('');
+    }
+    
+    // Show results
+    function showResults() {
+        const answerContainers = quizContainer.querySelectorAll('.question');
+        let numCorrect = 0;
+        
+        quizQuestions.forEach((currentQuestion, questionNumber) => {
+            const answerContainer = answerContainers[questionNumber];
+            const selector = `input[name=question${questionNumber}]:checked`;
+            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+            
+            if (userAnswer == currentQuestion.correct) {
+                numCorrect++;
+                answerContainers[questionNumber].style.color = 'green';
+            } else {
+                answerContainers[questionNumber].style.color = 'red';
+            }
+        });
+        
+        let resultMessage = '';
+        const percentage = Math.round((numCorrect / quizQuestions.length) * 100);
+        
+        if (percentage === 100) {
+            resultMessage = 'Excellent! You know how to protect yourself from OTP scams.';
+        } else if (percentage >= 75) {
+            resultMessage = 'Good job! You have strong awareness of OTP scams.';
+        } else if (percentage >= 50) {
+            resultMessage = 'Not bad, but you should learn more about OTP scams.';
+        } else {
+            resultMessage = 'Please review the information on this page to protect yourself better.';
+        }
+        
+        resultsContainer.innerHTML = `
+            <p>You scored ${numCorrect} out of ${quizQuestions.length} (${percentage}%)</p>
+            <p>${resultMessage}</p>
+        `;
+    }
+    
+    // Build quiz on page load
+    buildQuiz();
+    
+    // On submit, show results
+    submitButton.addEventListener('click', showResults);
+    
+    // Form submission
+    const scamReportForm = document.getElementById('scamReportForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    scamReportForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // In a real implementation, you would send this data to a server
+        // For this demo, we'll just show a success message
+        scamReportForm.classList.add('hidden');
+        formSuccess.classList.remove('hidden');
+        
+        // Reset form after 5 seconds (for demo purposes)
+        setTimeout(() => {
+            scamReportForm.reset();
+            scamReportForm.classList.remove('hidden');
+            formSuccess.classList.add('hidden');
+        }, 5000);
+    });
+    
+    // Floating warning animation
+    const otpWarning = document.getElementById('otpWarning');
+    
+    function animateWarning() {
+        otpWarning.style.transform = 'translateY(0)';
+        setTimeout(() => {
+            otpWarning.style.transform = 'translateY(100px)';
+        }, 5000);
+    }
+    
+    // Animate every 10 seconds
+    setInterval(animateWarning, 10000);
+    animateWarning(); // Initial animation
+});
+    </script>
+</body>
+</html>

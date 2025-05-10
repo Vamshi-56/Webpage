@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cyber Crime Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+                
+        }
+
+        body {
+            background-color: #0d1117;
+            color: white;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+        background: url("https://eda.europa.eu/images/default-source/images/cyber.jpg") no-repeat center center/cover;
+        /* background: url('https://cdn.pixabay.com/photo/2020/04/06/14/26/cyber-5011984_1280.jpg') no-repeat center center/cover; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* position: absolute; */
+            text-align: center;
+            overflow: hidden;
+            
+        }
+        
+       
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #e94560;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-size: 1.1rem;
+           
+        }
+
+        .btn:hover {
+            background: #ff6584;
+            transform: scale(1.1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            /* osition: relative; */
+            z-index: 2;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e94560;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .content img {
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        .content p {
+            max-width: 600px;
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 60px 20px;
+            background: #161b22;
+        }
+
+        .feature-box {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+            background: #e94560;
+            color: white;
+        }
+
+        .feature-box img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+   
+        .backbtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            border-radius: 10px;
+            height: 5px;
+            width: 7px;
+            background-color: #e94560;
+            cursor: pointer;
+        }
+
+        .fa-solid {
+            color:white;
+            font-size: 15px;
+            border-radius: 10px;
+            
+        }
+        
+        
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .navbar{
+            height: 60px;
+            /* background-color: rgba(43, 51, 59, 0.8) ; */
+            background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+            padding: 20px;
+            border-radius: 10px;
+
+
+        }
+        /* k-btn */
+        .k-btn{
+            /* position: fixed; */
+    top: 5px;
+    /* left: 15px; */
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 5px;
+        }
+        .k-btn:hover{
+            background-color: #161b22;
+        }
+        .k-btn a{
+            color: #0d1117;
+        }
+       
+       /* team */
+       h2{
+       margin-top:15px;
+       font-weight: bolder;
+       font-size: 25px;
+       }
+       .team{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 60px 20px;
+            background: #161b22;
+       }
+       .team-1{
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            transition: 0.3s;
+            text-align: center;
+       }
+       .team-1 img{
+            width: 100%;
+            border-radius: 10px;
+       }
+       .img-1{
+        height: 385px;
+       }
+       #id{
+        color: red;
+       }
+       /* #id:hover{
+        color: white;
+       } */
+    </style>
+</head>
+<body>
+    <!-- <div id="id">jagan</div> -->
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="logo">Copy right @ CyberShield</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <!-- <a href="" class="next-menu"><a href="#about">About</a></a> -->
+        </div>
+    </nav>
+   
+    <button class="backbtn" onclick="goBack()">
+         <a href="index.html"><i class="fa-solid fa-arrow-left "> Back</i></a>
+    </button>
+    
+    <header class="hero">
+         <div class="overlay"></div>
+            <div class="hero-content">
+            
+             <h1 class="animate-text">Cyber <i class="fas fa-shield-alt"></i> Shield</h1>
+                <p class="animate-text">AI-Powered Security Against Digital Threats</p>
+                <a href="https://www.fortinet.com/resources/cyberglossary/artificial-intelligence-in-cybersecurity" class="btn">Learn More</a>
+          </div>
+        </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Our System</h2>
+        <div class="content">
+            <img src="https://i.pinimg.com/736x/f7/3e/5c/f73e5c81adef663f8ee0d78dd347d106.jpg" alt="Cyber Security">
+            <p>
+                The Cyber Crime Prediction System is an advanced security solution that detects and prevents cyber threats using AI. 
+                By analyzing real-time data and suspicious activity, we help organizations and individuals protect their online presence.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-box">
+            <img src="https://i.pinimg.com/736x/4f/6d/06/4f6d06d5eadfcc0eafa79911cd647a79.jpg" alt="Data Collection">
+            <h3>Data Collection</h3>
+            <p>Our system monitors user behavior to detect suspicious activities.</p>
+            <button class="k-btn"><a href="">Know-More</a></button>
+
+        </div>
+        <div class="feature-box">
+            <img src="https://i.pinimg.com/736x/d4/f7/2b/d4f72b17bd2a9fa605859a8df05c52de.jpg" alt="AI Processing">
+            <h3>AI Analysis</h3>
+            <p>Machine learning models analyze patterns to identify cyber threats.</p>
+            <button class="k-btn"><a href="">Know-More</a></button>
+
+
+        </div>
+        <div class="feature-box">
+            <img src="https://i.pinimg.com/736x/33/16/25/331625b650b4f641f0692481439eecef.jpg" alt="Prevention">
+            <h3>Security & Prevention</h3>
+            <p>Our system provides real-time alerts and security measures.</p>
+            <button class="k-btn"><a href="">Know-More</a></button>
+            
+
+        </div>
+
+         
+    </section>
+    <!-- team -->
+    <!-- <h2>OUR - TEAM</h2> -->
+<!-- <div class="team"> -->
+    <!-- <div class="team-1"> -->
+        <!-- <img src="{% static 'images/vamshi-1.jpg' %}" alt="Data Collection"> -->
+        <!-- <h3>Data Collection</h3> -->
+        <!-- <p>Our system monitors user behavior to detect suspicious activities.</p> -->
+        <!-- <button class="k-btn"><a href="">Know-More</a></button> -->
+
+    </div>
+    <!-- <div class="team-1"> -->
+        <!-- <img        src="{% static 'images/uday.jfif' %} " class="img-1" alt="AI Processing"> -->
+        <!-- <h3>AI Analysis</h3> -->
+        <!-- <p>Machine learning models analyze patterns to identify? cyber threats.</p> -->
+        <!-- <button class="k-btn"><a href="">Know-More</a></button> -->
+
+
+    </div>
+    <!-- <div class="team-1"> -->
+        <!-- <img src="https://i.pinimg.com/736x/33/16/25/331625b650b4f641f0692481439eecef.jpg" alt="Prevention"> -->
+        <!-- <h3>Security & Prevention</h3> -->
+        <!-- <p>Our system provides real-time alerts and security measures.</p> -->
+        <!-- <button class="k-btn"><a href="">Know-More</a></button> -->
+
+    </div>
+
+</div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Cyber Crime Prediction System | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript Inside HTML -->
+    <script>
+        // #back to menu 
+        function goBack() {
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            window.location.href = "{% url 'dashboard' %}";
+        }
+    }
+        // Fade in animation for hero text
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll(".animate-text");
+
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }, index * 500);
+            });
+        });
+
+        // Button Hover Animation
+        document.querySelector(".btn").addEventListener("mouseenter", function() {
+            this.style.transform = "scale(1.1)";
+        });
+
+        document.querySelector(".btn").addEventListener("mouseleave", function() {
+            this.style.transform = "scale(1)";
+        });
+
+        // Scroll Animation
+        window.addEventListener("scroll", () => {
+            document.querySelectorAll(".feature-box").forEach(box => {
+                const rect = box.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    box.style.opacity = "1";
+                    box.style.transform = "translateY(0)";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
