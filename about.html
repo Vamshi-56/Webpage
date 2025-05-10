@@ -3,392 +3,911 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Cyber Crime Prediction</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-                
-        }
-
-        body {
-            background-color: #0d1117;
-            color: white;
-            text-align: center;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-        background: url("https://eda.europa.eu/images/default-source/images/cyber.jpg") no-repeat center center/cover;
-        /* background: url('https://cdn.pixabay.com/photo/2020/04/06/14/26/cyber-5011984_1280.jpg') no-repeat center center/cover; */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* position: absolute; */
-            text-align: center;
-            overflow: hidden;
-            
-        }
-        
-       
-
-        .overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #e94560;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-            font-size: 1.1rem;
-           
-        }
-
-        .btn:hover {
-            background: #ff6584;
-            transform: scale(1.1);
-        }
-
-        /* About Section */
-        .about {
-            padding: 60px 20px;
-            /* osition: relative; */
-            z-index: 2;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #e94560;
-        }
-
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .content img {
-            width: 400px;
-            border-radius: 10px;
-        }
-
-        .content p {
-            max-width: 600px;
-            text-align: justify;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* Features */
-        .features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 60px 20px;
-            background: #161b22;
-        }
-
-        .feature-box {
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .feature-box:hover {
-            transform: scale(1.05);
-            background: #e94560;
-            color: white;
-        }
-
-        .feature-box img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            margin-top: 40px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-   
-        .backbtn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            border-radius: 10px;
-            height: 5px;
-            width: 7px;
-            background-color: #e94560;
-            cursor: pointer;
-        }
-
-        .fa-solid {
-            color:white;
-            font-size: 15px;
-            border-radius: 10px;
-            
-        }
-        
-        
-        a{
-            color: white;
-            text-decoration: none;
-        }
-        .navbar{
-            height: 60px;
-            /* background-color: rgba(43, 51, 59, 0.8) ; */
-            background-color: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
-            padding: 20px;
-            border-radius: 10px;
-
-
-        }
-        /* k-btn */
-        .k-btn{
-            /* position: fixed; */
-    top: 5px;
-    /* left: 15px; */
-    background-color: white;
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    margin-top: 5px;
-        }
-        .k-btn:hover{
-            background-color: #161b22;
-        }
-        .k-btn a{
-            color: #0d1117;
-        }
-       
-       /* team */
-       h2{
-       margin-top:15px;
-       font-weight: bolder;
-       font-size: 25px;
-       }
-       .team{
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 60px 20px;
-            background: #161b22;
-       }
-       .team-1{
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            transition: 0.3s;
-            text-align: center;
-       }
-       .team-1 img{
-            width: 100%;
-            border-radius: 10px;
-       }
-       .img-1{
-        height: 385px;
-       }
-       #id{
-        color: red;
-       }
-       /* #id:hover{
-        color: white;
-       } */
-    </style>
+    <title>About Crime Shield | Your Personal Safety Companion</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<style>
+    /* Global Styles */
+:root {
+    --primary: #2c3e50;
+    --secondary: #e74c3c;
+    --accent: #3498db;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --text: #333;
+    --text-light: #7f8c8d;
+    --white: #fff;
+    --success: #2ecc71;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: var(--white);
+    border: 2px solid var(--secondary);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--secondary);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--secondary);
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/about-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 50px;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Mission Section */
+.mission {
+    padding: 80px 0;
+}
+
+.mission .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.mission-content {
+    flex: 1;
+}
+
+.mission-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.mission-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-item h3 {
+    font-size: 42px;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    color: var(--text-light);
+}
+
+.mission-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* History Section */
+.history {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.history h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--primary);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--accent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-date {
+    position: absolute;
+    width: 120px;
+    background-color: var(--secondary);
+    color: var(--white);
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    top: 15px;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    right: -150px;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    left: -150px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--white);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    top: 20px;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+    right: -7.5px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+    left: -7.5px;
+}
+
+.timeline-content h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+/* Team Section */
+.team {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.team h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.team .subtitle {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 50px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--accent);
+}
+
+.team-member h3 {
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.team-member .position {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-member .bio {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--primary);
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary);
+}
+
+/* Partners Section */
+.partners {
+    padding: 60px 0;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.partners h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--primary);
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.partner-logos img {
+    height: 60px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logos img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* CTA Section */
+.cta {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('../images/cta-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 60px 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.footer-col p {
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li i {
+    margin-right: 10px;
+    color: var(--secondary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--secondary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .mission .container {
+        flex-direction: column;
+    }
+    
+    .mission-image {
+        margin-top: 40px;
+    }
+    
+    .timeline::before {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        left: 15px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::after,
+    .timeline-item:nth-child(even) .timeline-content::after {
+        left: 58px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero h1 {
+        font-size: 36px;
+    }
+    
+    .about-hero p {
+        font-size: 16px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+</style>
 <body>
-    <!-- <div id="id">jagan</div> -->
-      <!-- Navigation Bar -->
-      <nav class="navbar">
-        <div class="logo">Copy right @ CyberShield</div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <!-- <a href="" class="next-menu"><a href="#about">About</a></a> -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Crime<span>Shield 
+              <i class="fas fa-shield-alt"></i>
+            </span></a>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="features.html">Features</a></li> -->
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn btn-outline">Login</a></li>
+            </ul>
         </div>
     </nav>
-   
-    <button class="backbtn" onclick="goBack()">
-         <a href="index.html"><i class="fa-solid fa-arrow-left "> Back</i></a>
-    </button>
-    
-    <header class="hero">
-         <div class="overlay"></div>
-            <div class="hero-content">
-            
-             <h1 class="animate-text">Cyber <i class="fas fa-shield-alt"></i> Shield</h1>
-                <p class="animate-text">AI-Powered Security Against Digital Threats</p>
-                <a href="https://www.fortinet.com/resources/cyberglossary/artificial-intelligence-in-cybersecurity" class="btn">Learn More</a>
-          </div>
-        </header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title">About Our System</h2>
-        <div class="content">
-            <img src="https://i.pinimg.com/736x/f7/3e/5c/f73e5c81adef663f8ee0d78dd347d106.jpg" alt="Cyber Security">
-            <p>
-                The Cyber Crime Prediction System is an advanced security solution that detects and prevents cyber threats using AI. 
-                By analyzing real-time data and suspicious activity, we help organizations and individuals protect their online presence.
-            </p>
+    <!-- Hero Section -->
+    <header class="about-hero">
+        <div class="container">
+            <h1>About Crime Shield</h1>
+            <p>Empowering communities through innovative safety solutions</p>
+            <!-- <img src="" alt=""> -->
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p>At Crime Shield, we're committed to creating safer communities through technology. Our mission is to provide accessible, real-time crime prevention tools that empower individuals and connect neighborhoods.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3 data-count="500000">0</h3>
+                        <p>Users Protected</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 data-count="25000">0</h3>
+                        <p>Incidents Reported</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 data-count="95">0</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mission-image">
+                <img src="https://media.assettype.com/freepressjournal/2024-07/547bf3f7-4d03-4488-b1c5-4dc0332eedc0/cyber%20fraud.jpg" alt="Community safety">
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="feature-box">
-            <img src="https://i.pinimg.com/736x/4f/6d/06/4f6d06d5eadfcc0eafa79911cd647a79.jpg" alt="Data Collection">
-            <h3>Data Collection</h3>
-            <p>Our system monitors user behavior to detect suspicious activities.</p>
-            <button class="k-btn"><a href="">Know-More</a></button>
-
+    <!-- History Section -->
+    <section class="history">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2018</div>
+                    <div class="timeline-content">
+                        <h3>Foundation</h3>
+                        <p>Founded by security experts after a series of neighborhood break-ins, the initial concept was born from personal experience with crime prevention challenges.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h3>First Prototype</h3>
+                        <p>Launched our first neighborhood watch app prototype in partnership with local law enforcement in three test cities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <h3>National Expansion</h3>
+                        <p>Expanded to 25 major metropolitan areas with our complete suite of crime prevention tools.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>AI Integration</h3>
+                        <p>Implemented machine learning algorithms to predict and prevent crime patterns before they occur.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="feature-box">
-            <img src="https://i.pinimg.com/736x/d4/f7/2b/d4f72b17bd2a9fa605859a8df05c52de.jpg" alt="AI Processing">
-            <h3>AI Analysis</h3>
-            <p>Machine learning models analyze patterns to identify cyber threats.</p>
-            <button class="k-btn"><a href="">Know-More</a></button>
-
-
-        </div>
-        <div class="feature-box">
-            <img src="https://i.pinimg.com/736x/33/16/25/331625b650b4f641f0692481439eecef.jpg" alt="Prevention">
-            <h3>Security & Prevention</h3>
-            <p>Our system provides real-time alerts and security measures.</p>
-            <button class="k-btn"><a href="">Know-More</a></button>
-            
-
-        </div>
-
-         
     </section>
-    <!-- team -->
-    <!-- <h2>OUR - TEAM</h2> -->
-<!-- <div class="team"> -->
-    <!-- <div class="team-1"> -->
-        <!-- <img src="{% static 'images/vamshi-1.jpg' %}" alt="Data Collection"> -->
-        <!-- <h3>Data Collection</h3> -->
-        <!-- <p>Our system monitors user behavior to detect suspicious activities.</p> -->
-        <!-- <button class="k-btn"><a href="">Know-More</a></button> -->
 
-    </div>
-    <!-- <div class="team-1"> -->
-        <!-- <img        src="{% static 'images/uday.jfif' %} " class="img-1" alt="AI Processing"> -->
-        <!-- <h3>AI Analysis</h3> -->
-        <!-- <p>Machine learning models analyze patterns to identify? cyber threats.</p> -->
-        <!-- <button class="k-btn"><a href="">Know-More</a></button> -->
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <p class="subtitle">Security experts and technology innovators working to keep you safe</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team1.jpg" alt="Sarah Johnson">
+                    <h3>Sarah Johnson</h3>
+                    <p class="position">CEO & Founder</p>
+                    <p class="bio">Former cybersecurity specialist with 15 years experience in digital safety solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/team2.jpg" alt="Michael Chen">
+                    <h3>Michael Chen</h3>
+                    <p class="position">CTO</p>
+                    <p class="bio">AI and machine learning expert focused on predictive crime analytics.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/team3.jpg" alt="David Rodriguez">
+                    <h3>David Rodriguez</h3>
+                    <p class="position">Head of Security</p>
+                    <p class="bio">Former police captain with deep expertise in community safety programs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/team4.jpg" alt="Priya Patel">
+                    <h3>Priya Patel</h3>
+                    <p class="position">Product Manager</p>
+                    <p class="bio">User experience specialist focused on accessible safety solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <h2>Trusted By</h2>
+            <div class="partner-logos">
+                <img src="images/partner1.png" alt="National Safety Council">
+                <img src="images/partner2.png" alt="City Police Department">
+                <img src="images/partner3.png" alt="Neighborhood Watch">
+                <img src="images/partner4.png" alt="Tech for Good">
+            </div>
+        </div>
+    </section>
 
-    </div>
-    <!-- <div class="team-1"> -->
-        <!-- <img src="https://i.pinimg.com/736x/33/16/25/331625b650b4f641f0692481439eecef.jpg" alt="Prevention"> -->
-        <!-- <h3>Security & Prevention</h3> -->
-        <!-- <p>Our system provides real-time alerts and security measures.</p> -->
-        <!-- <button class="k-btn"><a href="">Know-More</a></button> -->
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Make Your Community Safer?</h2>
+            <p>Join thousands of users who are already protected by Crime Shield</p>
+            <div class="cta-buttons">
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
 
-    </div>
-
-</div>
     <!-- Footer -->
     <footer>
-        <p>© 2025 Cyber Crime Prediction System | All Rights Reserved</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>CrimeShield</h3>
+                    <p>Your personal safety companion for modern living.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Safety Ave, Secure City</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@crimeshield.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CrimeShield. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- JavaScript Inside HTML -->
     <script>
-        // #back to menu 
-        function goBack() {
-        if (document.referrer) {
-            window.history.back();
-        } else {
-            window.location.href = "{% url 'dashboard' %}";
-        }
-    }
-        // Fade in animation for hero text
-        document.addEventListener("DOMContentLoaded", () => {
-            const elements = document.querySelectorAll(".animate-text");
+        document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
 
-            elements.forEach((element, index) => {
-                setTimeout(() => {
-                    element.style.opacity = "1";
-                    element.style.transform = "translateY(0)";
-                }, index * 500);
-            });
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
         });
+    });
 
-        // Button Hover Animation
-        document.querySelector(".btn").addEventListener("mouseenter", function() {
-            this.style.transform = "scale(1.1)";
-        });
-
-        document.querySelector(".btn").addEventListener("mouseleave", function() {
-            this.style.transform = "scale(1)";
-        });
-
-        // Scroll Animation
-        window.addEventListener("scroll", () => {
-            document.querySelectorAll(".feature-box").forEach(box => {
-                const rect = box.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 50) {
-                    box.style.opacity = "1";
-                    box.style.transform = "translateY(0)";
+    // Animate stats counter
+    const statItems = document.querySelectorAll('.stat-item h3');
+    
+    function animateStats() {
+        statItems.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    clearInterval(timer);
+                    current = target;
                 }
-            });
+                stat.textContent = Math.floor(current).toLocaleString();
+            }, 16);
         });
-    </script>
+    }
+    
+    // Intersection Observer for stats animation
+    const missionSection = document.querySelector('.mission');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(missionSection);
 
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+    </script>
 </body>
 </html>
