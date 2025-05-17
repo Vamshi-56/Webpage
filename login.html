@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Register</title>
+  <style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://cdn.pixabay.com/photo/2016/11/19/22/52/coding-1841550_1280.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+    .form-container {
+      background: #fff;
+      border-radius: 12px;
+      width: 350px;
+      padding: 25px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 107%;
+      padding: 12px;
+      background: #6c63ff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #5940d3;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .toggle-link a {
+      color:rgb(235, 95, 118);
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: -5px;
+      margin-bottom: 5px;
+      display: none;
+    }
+
+    .form-container {
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+  backdrop-filter: blur(10px);          /* blurred glass effect */
+  -webkit-backdrop-filter: blur(10px);  /* for Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  width: 350px;
+  padding: 50px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+  color: white;
+}
+input {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+input::placeholder {
+  color: #eee;
+}
+
+button {
+  background:rgb(239, 61, 90);
+  color: white;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2 id="formTitle">Login</h2>
+  <form onsubmit="return handleSubmit()">
+    <input type="text" id="username" placeholder="Username" />
+    <div class="error" id="usernameError">Username is required</div>
+
+    <input type="email" id="email" placeholder="Email" style="display: none;" />
+    <div class="error" id="emailError">Valid email required</div>
+
+    <input type="password" id="password" placeholder="Password" />
+    <div class="error" id="passwordError">Password must be at least 6 characters</div>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display: none;" />
+    <div class="error" id="confirmPasswordError">Passwords do not match</div>
+
+    <button type="submit" id="submitBtn">Login</button>
+
+    <div class="toggle-link">
+      <span id="toggleText">Don't have an account?</span>
+      <a onclick="toggleForm()">Register</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  let isLogin = true;
+
+  function toggleForm() {
+    isLogin = !isLogin;
+    document.getElementById("formTitle").innerText = isLogin ? "Login" : "Register";
+    document.getElementById("submitBtn").innerText = isLogin ? "Login" : "Register";
+    document.getElementById("toggleText").innerText = isLogin
+      ? "Don't have an account?"
+      : "Already have an account?";
+
+    document.getElementById("email").style.display = isLogin ? "none" : "block";
+    document.getElementById("confirmPassword").style.display = isLogin ? "none" : "block";
+
+    clearErrors();
+  }
+
+  function handleSubmit() {
+    clearErrors();
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+    let valid = true;
+
+    if (!username) {
+      showError("usernameError");
+      valid = false;
+    }
+
+    if (!isLogin) {
+      if (!email.includes("@")) {
+        showError("emailError");
+        valid = false;
+      }
+      if (password.length < 6) {
+        showError("passwordError");
+        valid = false;
+      }
+      if (password !== confirmPassword) {
+        showError("confirmPasswordError");
+        valid = false;
+      }
+      if (valid) {
+        // Store user in localStorage
+        const user = { username, email, password };
+        localStorage.setItem("user", JSON.stringify(user));
+        alert("Registered successfully!");
+        toggleForm();
+      }
+    } else {
+      // Login logic
+      const stored = JSON.parse(localStorage.getItem("user"));
+      if (!stored || stored.username !== username || stored.password !== password) {
+        alert("Invalid username or password");
+        return false;
+      }
+      alert("Login successful!");
+      window.location.href = "index.html"; // ✅ redirect to index page
+    }
+
+    return false; // prevent form reload
+  }
+
+  function showError(id) {
+    document.getElementById(id).style.display = "block";
+  }
+
+  function clearErrors() {
+    document.querySelectorAll(".error").forEach((el) => {
+      el.style.display = "none";
+    });
+  }
+</script>
+
+</body>
+</html>
