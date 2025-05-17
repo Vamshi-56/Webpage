@@ -1,209 +1,1267 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login & Register</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-Crime-Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
   <style>
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: url('https://cdn.pixabay.com/photo/2016/11/19/22/52/coding-1841550_1280.jpg') no-repeat center center fixed;
-  background-size: cover;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+button {
+  font-family: "Poppins", sans-serif;
+  
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/19/22/52/coding-1841550_1280.jpg"),
+                      linear-gradient(135deg, #485461 0%, #28313b 74%);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    transform-style: preserve-3d;
+  border-radius: 10px solid white;
+
+  }
+  
+  header {
+    min-height: 100vh;
+    width: 100%;
+   
+   
+  }
+  
+/* background image */
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #485461;
+  position: relative;
+  background-image: url("https://eda.europa.eu/images/default-source/images/cyber.jpg") linear-gradient(135deg, #485461 0%, #28313b 74%);
+  overflow-x: hidden;
+  transform-style: preserve-3d;
+}
+
+.navbar {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 3rem;
+}
+
+.menu {
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 4rem;
+}
+
+.logo span {
+  font-weight: 300;
+}
+
+.hamburger-menu {
+  height: 4rem;
+  width: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 1.9rem;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: #eee;
+  transition: 0.5s;
+  position: relative;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #eee;
+  transition: 0.5s;
+}
+
+.bar:before {
+  transform: translateY(-9px);
+}
+
+.bar:after {
+  transform: translateY(9px);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  overflow: hidden;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  
+}
+
+header {
+  min-height: 100vh;
+  width: 100%;
+  /* background: url("bg.jpg") no-repeat top center / cover; */
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 51, 59, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  
+ 
+  
 }
 
-    .form-container {
-      background: #fff;
-      border-radius: 12px;
-      width: 350px;
-      padding: 25px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    button {
-      width: 107%;
-      padding: 12px;
-      background: #6c63ff;
-      border: none;
-      color: white;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      background: #5940d3;
-    }
-
-    .toggle-link {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .toggle-link a {
-      color:rgb(235, 95, 118);
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .error {
-      color: red;
-      font-size: 13px;
-      margin-top: -5px;
-      margin-bottom: 5px;
-      display: none;
-    }
-
-    .form-container {
-  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
-  backdrop-filter: blur(10px);          /* blurred glass effect */
-  -webkit-backdrop-filter: blur(10px);  /* for Safari support */
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  width: 350px;
-  padding: 50px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.25);
-  color: white;
+.inner {
+    max-width: 35rem;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    border: solid white 4px;
+    padding: 5px;
+    border-radius: 25px;
+    
 }
-input {
-  background: rgba(255, 255, 255, 0.2);
+
+.title {
+  padding: 25px;
+  font-size:30px;
+  
+  
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.8rem;
+  background-color: #1179e7;
+  border: none;
+  border-radius: 25px;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover{
+    background-color: lightcoral;
 }
 
-input::placeholder {
-  color: #eee;
+.container.active .bar {
+  transform: rotate(360deg);
+  background-color: transparent;
+  
 }
 
-button {
-  background:rgb(239, 61, 90);
+.container.active .bar:before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar:after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.container.active .main {
+  animation: main-animation 0.5s ease;
+  cursor: pointer;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+a{
+    font-weight: 700;
+    font-weight: bolder;
+    
+}
+
+@keyframes main-animation {
+  from {
+    transform: translate(0);
+  }
+
+  to {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+
+.links {
+  position: absolute;
+  width: 30%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+/* meenu bg */
+
+.links a {
+  text-decoration: none;
+  /* color: red; */
+  padding: 0.7rem 0;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: hide 0.5s forwards ease;
+  /* background: white; */
+  
+}
+
+
+/* Navbar background color */
+.navbar {
+    /* background-color: #1a1a2e; Dark blue background */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    
+  }
+  
+  /* Menu items */
+  .links ul {
+    list-style: none;
+    display:block;
+    justify-content:center;
+    gap: 20px;
+    padding: 10px 0;
+  /* background-color: rgba(43, 51, 59, 0.8); */
+
+  }
+  
+  .links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    /* background-color: #16213e; Default button background */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+    
+  }
+  
+  /* Hover effect */
+  .links a:hover {
+    background-color: #0f3460; /* Lighter blue */
+    transform: scale(1.1);
+    
+
+  }
+  
+  /* Active menu item */
+  .links a.active {
+    background-color: #e94560; /* Highlight color */
+  }
+  
+
+
+.links a:hover {
+  color: #fff;
+
+}
+
+.container.active .links a {
+  animation: appear 0.5s forwards ease var(--i);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: 0.5s;
+  background-color: white;
+}
+
+.shadow.one {
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.shadow.two {
+  z-index: -2;
+  opacity: 0.1;
+}
+
+.container.active .shadow.one {
+  animation: shadow-one 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+
+@keyframes shadow-one {
+  0% {
+    transform: translate(0);
+  }
+
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+}
+
+.container.active .shadow.two {
+  animation: shadow-two 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes shadow-two {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+}
+
+.container.active .main:hover + .shadow.one {
+  transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+}
+
+.container.active .main:hover {
+  transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
+}
+span{
+    color: red;
+    
+}
+.wight{
+    font-weight: 300;
+
+}
+h2{
+    font-size: 30px;
+}
+.logout {
+  margin-left: auto; 
+  padding-right: 20px;
+}
+
+.logout .btn {
+  padding: 5px 15px;
+  background-color: #e94560; 
+  border-radius: 25px;
   color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
 }
 
+.logout .btn:hover {
+  background-color: lightcoral;
+}
 
-  </style>
-</head>
-<body>
+.auto-type {
+            display: inline-block;
+            /* border-right: 2px solid white; */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(100, end) infinite alternate, blink 0.7s infinite;
+        }
 
-<div class="form-container">
-  <h2 id="formTitle">Login</h2>
-  <form onsubmit="return handleSubmit()">
-    <input type="text" id="username" placeholder="Username" />
-    <div class="error" id="usernameError">Username is required</div>
+        @keyframes typing {
+            from { width: 0; }
+            to { width:100%; }
+        }
 
-    <input type="email" id="email" placeholder="Email" style="display: none;" />
-    <div class="error" id="emailError">Valid email required</div>
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .container.active .links {
+      background-color:rgba(43, 51, 59, 0.8);
+    }
 
-    <input type="password" id="password" placeholder="Password" />
-    <div class="error" id="passwordError">Password must be at least 6 characters</div>
+    /* Existing CSS remains the same until the end */
 
-    <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display: none;" />
-    <div class="error" id="confirmPasswordError">Passwords do not match</div>
+/* Responsive Media Queries */
+@media only screen and (max-width: 1200px) {
+  .links {
+    width: 40%;
+  }
+}
 
-    <button type="submit" id="submitBtn">Login</button>
+@media only screen and (max-width: 992px) {
+  .inner {
+    max-width: 30rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .links {
+    width: 50%;
+  }
+}
 
-    <div class="toggle-link">
-      <span id="toggleText">Don't have an account?</span>
-      <a onclick="toggleForm()">Register</a>
+@media only screen and (max-width: 768px) {
+  .menu {
+    padding: 0 1.5rem;
+  }
+  
+  .inner {
+    max-width: 25rem;
+    padding: 0 1.5rem;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .links {
+    width: 60%;
+  }
+  
+  .links a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .menu {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+    line-height: 3.5rem;
+  }
+  
+  .hamburger-menu {
+    height: 3.5rem;
+    width: 2.5rem;
+  }
+  
+  .bar {
+    width: 1.7rem;
+  }
+  
+  .inner {
+    max-width: 20rem;
+    padding: 0 1rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    padding: 15px;
+  }
+  
+  .btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .links {
+    width: 70%;
+  }
+  
+  .links a {
+    font-size: 0.8rem;
+  }
+  
+  .container.active .main {
+    transform: perspective(1300px) rotateY(15deg) translateZ(200px) scale(0.4);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logo {
+    font-size: 0.9rem;
+  }
+  
+  .inner {
+    max-width: 18rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .links {
+    width: 80%;
+  }
+  
+  .links ul {
+    padding-left: 1rem;
+  }
+  
+  .links a {
+    padding: 0.4rem 0;
+  }
+}
+
+/* Portrait orientation adjustments */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .overlay {
+    padding-top: 3rem; /* Give space for navbar */
+  }
+  
+  .inner {
+    margin-top: 2rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .inner {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .title {
+    padding: 10px;
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Very small devices (e.g., iPhone 5/SE) */
+@media only screen and (max-width: 320px) {
+  .inner {
+    max-width: 15rem;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .links {
+    width: 85%;
+  }
+}
+
+/* High DPI devices */
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi) {
+  .logo {
+    font-weight: 600;
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+}
+/* Mobile Responsive Menu Fixes */
+@media only screen and (max-width: 992px) {
+  /* Disable all 3D animations and transforms on mobile */
+  .container.active {
+    overflow: hidden;
+  }
+  
+  .container.active .main,
+  .container.active .shadow.one,
+  .container.active .shadow.two {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Fix menu positioning and visibility */
+  .links {
+    width: 250px; /* Fixed width for menu */
+    right: -250px; /* Start off-screen */
+    background-color: rgba(43, 51, 59, 0.98);
+    justify-content: flex-start;
+    padding-top: 5rem;
+    transition: transform 0.3s ease;
+    z-index: 1001; /* Ensure menu appears above content */
+  }
+  
+  /* Slide menu in from right */
+  .container.active .links {
+    transform: translateX(-250px);
+  }
+  
+  /* Immediate menu item appearance */
+  .container.active .links a {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Larger tap targets */
+  .links a {
+    display: block; /* Change to block for full width */
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    margin: 0.5rem 1rem;
+    width: calc(100% - 2rem); /* Full width minus margin */
+    text-align: left;
+    border-radius: 5px;
+  }
+  
+  /* Dark overlay when menu is open */
+  .container.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+  }
+  
+  /* Adjust hamburger position */
+  .hamburger-menu {
+    z-index: 1002;
+  }
+}
+
+/* For smaller screens */
+@media only screen and (max-width: 576px) {
+  .links {
+    width: 80%;
+    right: -80%;
+  }
+  
+  .container.active .links {
+    transform: translateX(-80%);
+  }
+  
+  .links a {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* For smallest screens */
+@media only screen and (max-width: 400px) {
+  .links {
+    width: 90%;
+    right: -90%;
+  }
+  
+  .container.active .links {
+    transform: translateX(-90%);
+  }
+  
+  .links a {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+/*    next page -start*/
+
+    /* Main Cyber Section */
+/* Cyber Shield Intelligence Center Styles */
+.cyber-center {
+  padding: 50px 20px;
+  background: 
+    linear-gradient(rgba(5, 5, 5, 0.9), rgba(17, 26, 51, 0.9)), /* gradient overlay */
+    url('https://images.pexels.com/photos/5380792/pexels-photo-5380792.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;        /* background image */
+  background-size: cover;
+  text-align: center;
+  animation: backgroundFade 3s ease-in-out, textFadeIn 2s ease-in, bgMorph 20s ease infinite;
+}
+  /* Intro Panel */
+  .intro-panel h1 {
+    font-size: 2.8rem;
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+    animation: slideDownFade 1s ease-in-out, headerOpacity 1s ease-in-out;
+  }
+  
+  .intro-panel p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 10px auto;
+    color: #bbb;
+    animation: fadeIn 1.5s ease-in 0.5s, textFadeIn 2s ease-in;
+  }
+  
+  .intro-panel .emphasis {
+    color: #f44336;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: pulseGlow 2s ease-in-out infinite, pulseScale 3s infinite alternate;
+  }
+  
+  /* Dashboard Cards */
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 50px auto;
+    max-width: 1100px;
+  }
+  
+  .card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid #0ef;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    animation: zoomIn 0.8s ease forwards, bounceIn 1.2s ease-out, floatUpDown 3s ease-in-out infinite;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(0,255,255,0.1), rgba(255,255,255,0.15), rgba(0,255,255,0.1));
+    animation: shimmer 2s infinite linear;
+  }
+  
+  .card:hover {
+    transform: scale(1.06) translateY(-6px);
+    box-shadow: 0 0 25px #0ef;
+    animation: bounceIn 0.8s ease-in-out;
+  }
+  
+  .card h2 {
+    color: #03e9f4;
+    font-size: 1.3rem;
+    animation: fadeInUp 1.2s ease, textFadeIn 1.5s ease-in;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+    color: #ccc;
+    animation: textFadeIn 2s ease-in;
+  }
+  
+  .card .case {
+    margin-top: 10px;
+    font-style: italic;
+    color: #f5f5f5;
+    animation: fadeIn 2s ease-in, textFadeIn 2s ease-in;
+  }
+  
+  /* Tips, Testimonials, Counter */
+  .tips-section, .testimonial-section, .live-counter {
+    background: #1a1a1a;
+    margin: 40px auto;
+    max-width: 1000px;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px #0ef;
+    animation: fadeSlideUp 1.4s ease-in-out forwards, pulseScale 3s infinite alternate;
+  }
+  
+  .tips-section h3, .testimonial-section h3 {
+    color: #00e5ff;
+    margin-bottom: 15px;
+    animation: pulseGlow 2s ease-in-out infinite, pulseScale 2.5s infinite alternate;
+  }
+  
+  .tips-section ul {
+    text-align: left;
+    list-style: square;
+    padding-left: 30px;
+  }
+  
+  .tips-section li {
+    margin: 8px 0;
+    color: #ccc;
+    animation: staggerFade 1s ease-out forwards;
+    opacity: 0;
+  }
+  .tips-section li:nth-child(1) { animation-delay: 0.3s; }
+  .tips-section li:nth-child(2) { animation-delay: 0.6s; }
+  .tips-section li:nth-child(3) { animation-delay: 0.9s; }
+  .tips-section li:nth-child(4) { animation-delay: 1.2s; }
+  .tips-section li:nth-child(5) { animation-delay: 1.5s; }
+  
+  .testimonial-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  @media (min-width: 768px) {
+    .testimonial-section {
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: left;
+    }
+    .testimonial-section blockquote {
+      flex: 1;
+    }
+  }
+  
+  .testimonial-section blockquote {
+    font-style: italic;
+    color: #ddd;
+    margin: 10px 0;
+    position: relative;
+    animation: slideRightFade 1.3s ease, rotateIn 2s ease-in-out;
+  }
+  
+  .testimonial-section cite {
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+  
+  .live-counter h2 {
+    color: #f44336;
+    font-size: 1.8rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .live-counter .counter {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ff4081;
+    text-shadow: 0 0 15px #ff4081, 0 0 25px #ff4081;
+    animation: glowPulse 1.5s ease-in-out infinite alternate, pulseScale 3s infinite alternate;
+  }
+  
+  /* Footer */
+  footer {
+    background: #000;
+    text-align: center;
+    color: #666;
+    padding: 15px;
+    font-size: 0.9rem;
+    animation: fadeIn 1s ease-in, textFadeIn 1.5s ease-in-out;
+  }
+  
+  /* Hover Effects */
+  a:hover {
+    animation: linkHoverEffect 1s ease-in-out;
+  }
+  button:hover {
+    animation: shakeEffect 0.6s ease-in-out;
+  }
+  
+  /* Animations */
+  @keyframes shimmer {
+    0% { background-position: -500px 0; }
+    100% { background-position: 500px 0; }
+  }
+  
+  @keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes staggerFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes backgroundFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes textFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideDownFade {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes headerOpacity {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes pulseGlow {
+    0% { text-shadow: 0 0 10px #0ef; }
+    100% { text-shadow: 0 0 20px #0ef, 0 0 30px #0ef; }
+  }
+  
+  @keyframes pulseScale {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.02); }
+  }
+  
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes bounceIn {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideRightFade {
+    from { transform: translateX(-40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes rotateIn {
+    0% { transform: rotate(-3deg) scale(0.95); opacity: 0.5; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+  }
+  
+  @keyframes glowPulse {
+    0% { text-shadow: 0 0 10px #ff4081; }
+    100% { text-shadow: 0 0 20px #ff4081, 0 0 30px #ff4081; }
+  }
+  
+  @keyframes bgMorph {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes linkHoverEffect {
+    0% { color: #fff; }
+    50% { color: #0ef; text-shadow: 0 0 10px #0ef; }
+    100% { color: #fff; }
+  }
+  
+  @keyframes shakeEffect {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+  }
+   /* Animations */
+  @media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .navbar .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .navbar .logout {
+    margin-top: 10px;
+  }
+
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  .links ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  .links ul li {
+    margin: 10px 0;
+  }
+
+  .inner .title {
+    font-size: 24px;
+  }
+
+  .inner p {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  header .overlay {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .shadow.one,
+  .shadow.two {
+    display: none;
+  }
+}
+
+      
+</style>
+   <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="menu">
+          <h3 class="logo">
+              Cyber<span class="wight">Shield</span></h3>
+              <i class="fas fa-shield-alt"></i>
+          <!-- logotbutton -->
+          <div class="logout">
+            <a href="index.html" class="btn">Logout</a>
+          </div>
+          <div class="hamburger-menu">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="main">
+          <header>
+            <div class="overlay">
+              <div class="inner">
+                <h2 class="title"><span class="auto-type"><span style="color: white;">Secure Your</span> Digital World</h2></span>
+                <p>
+                    "Think before you click" is a concise phrase that easily sticks in people's minds.</p>
+                <button class="btn"><a  href="https://cybercrime.gov.in/Webform/Accept.aspx#:~:text=National%20police%20helpline%20number%20is,Cyber%20Crime%20Helpline%20is%201930." style="color: white; text-decoration: none;">File-Complaint </a></button>
+              </div>
+            </div>
+          </header>
+        </div>
+
+        <div class="shadow one"></div>
+        <div class="shadow two"></div>
+      </div>
+
+      <div class="links">
+        <ul>
+          <li>
+            <a href="#" style= "--i: 0.15s;" >Home</a>
+          </li>
+          <li>
+            <a target="_blank" href="about.html" style="--i: 0.15s;" data-text="About Us">About Us</a>
+
+          </li>
+          <li>
+            <a href=""style="--i: 0.15s;">email-phishing</a>
+          </li>
+          
+          <li>
+            <a href="phishing.html" style="--i: 0.2s;"> Phishing Attacks</a>
+          </li>
+          <li>
+            <a href="otp-scams.html" style="--i: 0.25s;">OTP Scams</a>
+          </li>
+          <li>
+            <a href="contact.html" style="--i: 0.3s;">Contact</a>
+          </li>
+          <li>
+            <a href="urls-blocking.html" style="--i: 0.3s;">Protect-Urls</a>
+          </li> 
+          
+        </ul>
+      </div>
     </div>
-  </form>
-</div>
+
+ <!-- next page -->
+<section class="cyber-center">
+  <div class="intro-panel">
+    <h1>Stay Vigilant in the Digital Era</h1>
+    <p>
+      Every click online is a doorway — some lead to knowledge, others to risk. Cybercrime is real, personal, and growing rapidly.
+    </p>
+    <p class="emphasis">India ranks among the top 5 countries for online fraud in 2025. Be aware. Be alert.</p>
+  </div>
+
+  <div class="dashboard">
+    <div class="card zoom">
+      <h2><a href="phishing.html">🔗 Phishing Attacks</a></h2>
+      <p>82% of users fall for fake banking links, mimicking official websites.</p>
+      <p class="case"><strong>Case:</strong> Hyderabad woman lost ₹8.6L via fake LIC email.</p>
+    </div>
+
+    <div class="card fade">
+      <h2><a href="otp-scams.html">💬 OTP Scams</a></h2>
+      <p>Fraudsters pose as KYC agents and steal OTPs through fake calls.</p>
+      <p class="case"><strong>Case:</strong> Bengaluru youth lost ₹1.2L updating “SIM KYC”.</p>
+    </div>
+
+    <div class="card slide">
+      <h2>🖥️ Remote Access Apps</h2>
+      <p>Apps like AnyDesk let attackers remotely control your device when misused.</p>
+      <p class="case"><strong>Tip:</strong> Never install apps shared via unknown links.</p>
+    </div>
+  </div>
+
+  <div class="tips-section">
+    <h3>🔒 Cyber Safety Tips</h3>
+    <ul>
+      <li>Never share your OTP, PIN, or passwords with anyone—even bank officials.</li>
+      <li>Use multi-factor authentication wherever possible.</li>
+      <li>Install apps only from trusted sources like Google Play Store or Apple App Store.</li>
+      <li>Always double-check the URL before entering credentials.</li>
+      <li>Report suspicious emails or messages to cybercrime.gov.in.</li>
+    </ul>
+  </div>
+
+  <div class="testimonial-section">
+    <h3>📣 Voices of Experience</h3>
+    <blockquote>"I ignored a suspicious SMS once—thankfully I did! My colleague lost ₹75,000 from a similar message."</blockquote>
+    <cite>— Priya R., Mumbai</cite>
+    <blockquote>"My father installed a fake loan app. Within minutes, ₹20,000 was debited from his bank account."</blockquote>
+    <cite>— Arun M., Bangalore</cite>
+  </div>
+
+  <div class="live-counter">
+    <h2>⚠️ Real-Time Cyber Crime Stats</h2>
+    <p>Every <span class="counter" id="count">2</span> seconds, a cyber attack is attempted globally.</p>
+    <p style="font-style: italic;">Source: CERT-In | Updated May 2025</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Cyber Shield | Stay Safe. Stay Smart. | Contact: cyberhelp@shield.in
+</footer>
 
 <script>
-  let isLogin = true;
+  let count = 2;
+  setInterval(() => {
+    count += 2;
+    document.getElementById("count").textContent = count;
+  }, 2000);
+</script>
+  <!-- next page ends -->
 
-  function toggleForm() {
-    isLogin = !isLogin;
-    document.getElementById("formTitle").innerText = isLogin ? "Login" : "Register";
-    document.getElementById("submitBtn").innerText = isLogin ? "Login" : "Register";
-    document.getElementById("toggleText").innerText = isLogin
-      ? "Don't have an account?"
-      : "Already have an account?";
-
-    document.getElementById("email").style.display = isLogin ? "none" : "block";
-    document.getElementById("confirmPassword").style.display = isLogin ? "none" : "block";
-
-    clearErrors();
-  }
-
-  function handleSubmit() {
-    clearErrors();
-
-    const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const confirmPassword = document.getElementById("confirmPassword").value.trim();
-
-    let valid = true;
-
-    if (!username) {
-      showError("usernameError");
-      valid = false;
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.container');
+  const hamburger = document.querySelector('.hamburger-menu');
+  const mainContent = document.querySelector('.main');
+  
+  // Toggle menu when hamburger is clicked
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    container.classList.toggle('active');
+  });
+  
+  // Close menu when clicking outside (on the overlay)
+  document.addEventListener('click', function(e) {
+    if (container.classList.contains('active') && 
+        !e.target.closest('.links') && 
+        !e.target.closest('.hamburger-menu')) {
+      container.classList.remove('active');
     }
-
-    if (!isLogin) {
-      if (!email.includes("@")) {
-        showError("emailError");
-        valid = false;
-      }
-      if (password.length < 6) {
-        showError("passwordError");
-        valid = false;
-      }
-      if (password !== confirmPassword) {
-        showError("confirmPasswordError");
-        valid = false;
-      }
-      if (valid) {
-        // Store user in localStorage
-        const user = { username, email, password };
-        localStorage.setItem("user", JSON.stringify(user));
-        alert("Registered successfully!");
-        toggleForm();
-      }
-    } else {
-      // Login logic
-      const stored = JSON.parse(localStorage.getItem("user"));
-      if (!stored || stored.username !== username || stored.password !== password) {
-        alert("Invalid username or password");
-        return false;
-      }
-      alert("Login successful!");
-      window.location.href = "index.html"; // ✅ redirect to index page
-    }
-
-    return false; // prevent form reload
-  }
-
-  function showError(id) {
-    document.getElementById(id).style.display = "block";
-  }
-
-  function clearErrors() {
-    document.querySelectorAll(".error").forEach((el) => {
-      el.style.display = "none";
-    });
-  }
+  });
+  
+  // Prevent clicks inside menu from closing it
+  const links = document.querySelector('.links');
+  links.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+});
+      
 </script>
 
-</body>
+  </body>
+  
 </html>
